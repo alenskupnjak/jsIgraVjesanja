@@ -9,14 +9,62 @@
 <body>
   <div class="container">
     <header>
-      <h1>Igra vješanja</h1>
-      <p>Igra pogađanja rijeći upišite jedno slovo</p>
+      <h2>Igra vješanja</h2>
+      <p>Igra pogađanja rijeći, upišite jedno slovo</p>
     </header>
 
-    <section id="slikaVjesala">
+    <section id="vjesala" class="vjesala">
+      <div class="vjesala-slika">
+        <svg height="320" width="250">
+          <line x1="20" y1="300" x2="80" y2="300" />
+          <line x1="50" y1="300" x2="50" y2="50"/>
+          <line x1="50" y1="50" x2="120" y2="50"/>
+          <line x1="120" y1="50" x2="120" y2="80"/>
+          <circle cx="120" cy="100" r="20" class="dijeloviTijela" />
+          <line x1="120" y1="120" x2="120"  y2="200" class="dijeloviTijela"/>
+          <line x1="120" y1="200" x2="90"  y2="250" class="dijeloviTijela"/>
+          <line x1="120" y1="200" x2="150"  y2="250" class="dijeloviTijela"/>
+          <line x1="120" y1="150" x2="80"  y2="130" class="dijeloviTijela"/>
+          <line x1="120" y1="150" x2="160"  y2="130" class="dijeloviTijela"/>
+     
 
+        </svg>
+      </div>
+      <div class="vjesala-kriva-slova">
+        <h2>Kriva slova</h2>
+        <p>a, b, c, d, e, f</p>
+      </div>
 
     </section>
+
+    <section id="trazenaRijec" class="trazenaRijec">
+      <h2>Tražena rijeć</h2>
+      <div class="trazenaRijec-slova">
+        <span>a</span>
+        <span>b</span>
+        <span>c</span>
+        <span>d</span>
+        <span>a</span>
+        <span>a</span>
+        <span>a</span>
+        <span>a</span>
+        <span>a</span>
+        <span>a</span>
+        <span>a</span>
+        <span>a</span>
+        <span>a</span>
+      </div>
+
+    </section>
+
+    <section id="poruke" class="poruke">
+      <div class="krivoSlovo">
+        <p>Poruka krivo slovo</p>
+      </div>
+      <button>Nova Igra</button>
+    </section>
+
+
 
 
   </div>
