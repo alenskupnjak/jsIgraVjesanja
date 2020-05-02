@@ -18,7 +18,7 @@
 
 
 header {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 header p {
@@ -51,10 +51,20 @@ header p {
   background: orange;
 }
 
+.vjesala .vjesala-kriva-slova .obavijest{
+  font-size: 1rem;
+  background: magenta;
+  visibility: hidden;
+}
+
 
 
 .trazenaRijec {
   padding: 0.5rem;
+}
+
+.trazenaRijec h2{
+  margin: 0.2rem 0;
 }
 
 .trazenaRijec-slova {
@@ -65,18 +75,20 @@ header p {
   font-size: 1.4rem;
   background: greenyellow;
   border-bottom: 2px solid orangered;
+  padding: 0.4rem;
 }
 
 .poruke {
   margin: auto;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: 300px;
   height: 100px;
   background: olivedrab;
   text-align: center;
   align-items: center;
   border-radius: 5px;
+  display: none;
 }
 
 button {
@@ -86,4 +98,12 @@ button {
   font-size: 1rem;
   border: 0;
   border-radius: 5px;
+}
+
+.tijelo {
+  display: none;
+}
+
+.prikazi {
+  display: block;
 }
