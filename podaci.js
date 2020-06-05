@@ -67,8 +67,8 @@ class Podaci {
   }
 
 
-   odaberiRijecIzDatoteke() {
-    let imenice = fetch('imeniceHR.txt')
+   async odaberiRijecIzDatoteke() {
+    let imenice = await fetch('imeniceHR.txt')
     .then(response => response.text())
     .then(data => {
       // Do something with your data

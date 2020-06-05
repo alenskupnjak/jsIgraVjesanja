@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/icon" href="hangman.png">
   <link rel="stylesheet" href="style.css">
   <title>Igra vješanja</title>
 </head>
@@ -12,7 +13,7 @@
   <div class="container">
     <header>
       <h2>Igra vješanja</h2>
-      <p>Igra pogađanja riječi, upišite jedno slovo</p>
+      <p>Igra pogađanja riječi, upišite slovo</p>
     </header>
 
     <section id="vjesala" class="vjesala">
@@ -32,9 +33,9 @@
       </div>
       <div class="vjesala-kriva-slova">
         <div class="obavijest" id="obavijest">
-          <p>Krivo upisano slovo</p>
+          <p>Upisano krivo slovo</p>
         </div>
-        <h2>Kriva slova</h2>
+        <h2>Kriva slova:</h2>
         <p id="krivaSlova"></p>
       </div>
     </section>
@@ -44,7 +45,6 @@
       <div class="trazenaRijec-slova" id="trazenaRijec-slova">
         <!-- <span></span> -->
       </div>
-
     </section>
 
 
@@ -60,5 +60,4 @@
   <script src="podaci.js"></script>
   <script src="app.js"></script>
 </body>
-
 </html>

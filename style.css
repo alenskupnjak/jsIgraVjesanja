@@ -5,16 +5,14 @@
   box-sizing: border-box;
 }
 
-
 .container {
-  background:#81c784;
+  background:#f9fbe7;
   max-width: 800px;
   margin: auto;
   height: 100vh;
   text-align: center;
   font-size: 1rem;
 }
-
 
 
 header {
@@ -29,13 +27,12 @@ header p {
   display: flex;
   align-items: center;
   text-align: center;
-  background: blue;
-
+  background: #e6ee9c;
 
   /*Detalji linjie*/
-  stroke:darkred;
+  stroke:#37474f;
   stroke-width: 2px;
-  fill: aqua;
+  fill: #263238;
 }
 
 .vjesala .vjesala-slika {
@@ -48,15 +45,15 @@ header p {
   padding: 1rem;
   margin: auto;
   width: 50%;
-  background: orange;
+  background: #cddc39;
 }
 
 .vjesala .vjesala-kriva-slova .obavijest{
-  font-size: 1rem;
-  background: magenta;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  background: #ffab91;
   visibility: hidden;
 }
-
 
 
 .trazenaRijec {
@@ -72,10 +69,17 @@ header p {
 }
 .trazenaRijec-slova span{
   margin: 0.2rem;
-  font-size: 1.4rem;
-  background: greenyellow;
-  border-bottom: 2px solid orangered;
+  font-size: 1.3rem;
+  background: #e0e0e0;
   padding: 0.4rem;
+}
+
+.pogodeno-slovo {
+  border-bottom: 2px solid #1b5e20;
+}
+
+.ne-pogodeno-slovo {
+  border-bottom: 2px solid orangered;
 }
 
 .poruke {
@@ -84,7 +88,7 @@ header p {
   font-size: 1.2rem;
   width: 300px;
   height: 150px;
-  background: olivedrab;
+  background: #c5e1a5;
   text-align: center;
   align-items: center;
   border-radius: 5px;
@@ -92,8 +96,10 @@ header p {
 }
 
 button {
-  margin-top: 0.3rem;
-  background:blue;
+  width: 120px;
+  margin-top: 1rem;
+  background:#78909c;
+  color: #FFF;
   padding: 0.5rem;
   font-size: 1rem;
   border: 0;

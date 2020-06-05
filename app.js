@@ -16,9 +16,7 @@ let trazenaRijec = '';
 let trazenaRijecOrg = '';
 
 
-window.addEventListener('keydown', (e) => {
-  console.log(e);
-  
+window.addEventListener('keydown', (e) => {  
   // Provjeravamo dali su upisana slova. ako nisu program stoji i ceka unos sloava
   if (e.keyCode >= 65 && e.keyCode <= 90
     || e.keyCode=== 222 // ć
@@ -69,13 +67,12 @@ window.addEventListener('keydown', (e) => {
 
 // popunjavamo ekran sa dobivenom rijeci iz rijecnika
 function popuniRijec() {
-  console.log('Trazena rijec= ' + trazenaRijec);
   let rijecHTML = '';
   let rijec = '';
 
   trazenaRijec.forEach((data) => {
     if (dobraSlova.includes(data)) {
-      rijecHTML = rijecHTML + `<span>${data}</span>`;
+      rijecHTML = rijecHTML + `<span class="pogodeno-slovo">${data}</span>`;
       rijec = rijec + data;
 
       // ako je rijec sa ekrana jednaka trazenoj rijeci prikazujemo pobjedu
@@ -83,7 +80,7 @@ function popuniRijec() {
         prikaziPoruku('pobjeda');
       }
     } else {
-      rijecHTML = rijecHTML + `<span>&nbsp</span>`;
+      rijecHTML = rijecHTML + `<span class="ne-pogodeno-slovo" >&nbsp</span>`;
     }
   });
 
@@ -104,7 +101,7 @@ function popuniRijec() {
 // Prikaz poruka
 function prikaziPoruku(data) {
   if (data === 'poraz') {
-    porukeObavijesti.innerHTML = `<h2>Obješeni ste</h2><p>Tražena rijeć= ${trazenaRijecOrg}</p>`;
+    porukeObavijesti.innerHTML = `<h2>Obješeni ste!</h2><p>Tražena rijeć= ${trazenaRijecOrg}</p>`;
     // porukeObavijesti.append= '<p>Obješeni ste</p>'
   }
 
@@ -124,11 +121,10 @@ function novaIgra(rijec) {
   dobraSlova = [];
 
   trazenaRijec = rijec.toLowerCase();
-  console.log(trazenaRijec);
-  
+
+  // spremam orginalnu rijeć da se ispiše u slučaju poraza
   trazenaRijecOrg = trazenaRijec;
-  console.log(trazenaRijec);
-  console.log(trazenaRijec.trim(''));
+
 
   trazenaRijec = trazenaRijec.split('');
 
@@ -161,9 +157,7 @@ function dohvatiRijeciText() {
     let polje = data.replace(/\n/g, " ");
     polje = polje.split(' ')
     
-    console.log(polje);
     let rijecPodadanja =  polje [Math.floor(Math.random()*polje.length)];
-    console.log(rijecPodadanja);
     
     return novaIgra(rijecPodadanja)
   })
