@@ -1,7 +1,6 @@
 // Inicijalizacija rada servisa
 const apiData = new Podaci();
 
-
 const trazensSlova = document.getElementById('trazenaRijec-slova');
 const novaIgraBtn = document.getElementById('novaIgra');
 const krivaSlovaTxt = document.getElementById('krivaSlova');
@@ -16,21 +15,19 @@ let dobraSlova = [];
 let trazenaRijec = '';
 let trazenaRijecOrg = '';
 
-// trazenaRijec = ['koKa', 'Avantura', 'AjmoDalje'];
-
-// trazenaRijec = trazenaRijec[
-//   Math.floor(trazenaRijec.length * Math.random())
-// ].toLowerCase();
-
-// trazenaRijecOrg = trazenaRijec;
-
-// trazenaRijec = trazenaRijec.split('');
-
-// console.log(trazenaRijec);
 
 window.addEventListener('keydown', (e) => {
+  console.log(e);
+  
   // Provjeravamo dali su upisana slova. ako nisu program stoji i ceka unos sloava
-  if (e.keyCode >= 65 && e.keyCode <= 90) {
+  if (e.keyCode >= 65 && e.keyCode <= 90
+    || e.keyCode=== 222 // ć
+    || e.keyCode=== 219 // š
+    || e.keyCode=== 186 // č
+    || e.keyCode=== 220 // ž
+    || e.keyCode=== 221 // đ
+    ) {
+      
     // pretvaramo slovo u malo slovo
     let slovo = e.key.toLowerCase();
 
@@ -69,7 +66,6 @@ window.addEventListener('keydown', (e) => {
     popuniRijec();
   }
 });
-
 
 // popunjavamo ekran sa dobivenom rijeci iz rijecnika
 function popuniRijec() {
@@ -123,26 +119,17 @@ function prikaziPoruku(data) {
 
 // pokretanje nove igre
 function novaIgra(rijec) {
+  trazenaRijec = '';
   krivaSlova = [];
   dobraSlova = [];
 
-  // rijec = rijec.toLowerCase();
-  // console.log(rijec);
+  trazenaRijec = rijec.toLowerCase();
+  console.log(trazenaRijec);
   
-
-  // trazenaRijec = rijec;
-  // let arijec = rijec;
-  // console.log(arijec);
-  // console.log(typeof arijec);
-
-  // arijec = arijec.toLowerCase();
-
-
-  // trazenaRijec = arijec;
-
-  trazenaRijec = rijec.toLowerCase();;
   trazenaRijecOrg = trazenaRijec;
   console.log(trazenaRijec);
+  console.log(trazenaRijec.trim(''));
+
   trazenaRijec = trazenaRijec.split('');
 
 
@@ -161,10 +148,36 @@ function dohvatiRijeci() {
       return novaIgra(data);
     })
     .catch((err) => console.log(err));
+
 }
 
-// Event lisener za novu igru
-novaIgraBtn.addEventListener('click', dohvatiRijeci);
+// dohvati rijec iz API i pokreni novu igru
+function dohvatiRijeciText() {
 
-// Pqokreni novu igru prilikom refresh
-document.addEventListener('DOMContentLoaded', dohvatiRijeci);
+  // Iz liste
+  apiData.odaberiRijecIzDatoteke()
+  .then(data => {
+    // Zamjenjujem new line sa space da mogu 
+    let polje = data.replace(/\n/g, " ");
+    polje = polje.split(' ')
+    
+    console.log(polje);
+    let rijecPodadanja =  polje [Math.floor(Math.random()*polje.length)];
+    console.log(rijecPodadanja);
+    
+    return novaIgra(rijecPodadanja)
+  })
+}
+
+
+
+
+// Event lisener za novu igru
+novaIgraBtn.addEventListener('click', dohvatiRijeciText);
+
+// Pokreni novu igru iz API prilikom refresh
+// document.addEventListener('DOMContentLoaded', dohvatiRijeci);
+
+
+// Pokreni novu igru iz TXT datoteka prilikom refresh
+document.addEventListener('DOMContentLoaded', dohvatiRijeciText);
