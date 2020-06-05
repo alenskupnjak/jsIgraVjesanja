@@ -1,6 +1,6 @@
 class Podaci {
   constructor() {
-    this.apiKey = 'hs0vgcdz5j3z369q03r5t0wyhfbsan3ux5q287hvxurn37lwi';
+    this.apiKey = '';
   }
 
   async jednarijec() {
@@ -76,7 +76,6 @@ class Podaci {
     });
 
     return imenice
-    
   }
 
   loadData() {
