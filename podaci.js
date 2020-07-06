@@ -67,14 +67,14 @@ class Podaci {
   }
 
 
+  // Odabirem riječ iz datoteke
    async odaberiRijecIzDatoteke() {
-    let imenice = await fetch('imeniceHR.txt')
+    let imenice = await fetch('./src/imeniceHR.txt')
     .then(response => response.text())
     .then(data => {
       // Do something with your data
       return data
     });
-
     return imenice
   }
 
