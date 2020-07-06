@@ -127,11 +127,6 @@ function novaIgra(rijec) {
   krivaSlova = [];
   dobraSlova = [];
   slovoInput.value = '';
-  console.log(rijec);
-  
-  // if (rijec) {
-  //   pokazi.textContent = rijec;
-  // }
 
   trazenaRijec = rijec.toLowerCase();
 
