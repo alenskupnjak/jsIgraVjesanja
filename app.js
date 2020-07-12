@@ -19,12 +19,14 @@ let dobraSlova = [];
 let trazenaRijec = '';
 let trazenaRijecOrg = '';
 
+//////////////////////////////////////////////
+// obrada unosa rijeci
 function obradiUnos(e) {
   // console.log('obradi je unos ', e.keyCode, e.key);
   // upisano.textContent = e.keyCode;
   // console.log(typeof e.keyCode, typeof e.key);
 
-  // Provjeravamo dali su upisana slova. ako nisu program stoji i ceka unos sloava
+  // Provjeravamo dali su upisana slova. ako nisu program stoji i ceka unos slova
   if (
     (e.keyCode >= 65 && e.keyCode <= 90) ||
     e.keyCode === 262 || // Ć
@@ -70,6 +72,7 @@ function obradiUnos(e) {
   slovoInput.value = '';
 }
 
+//////////////////////////////////////////////
 // popunjavamo ekran sa dobivenom rijeci iz rijecnika
 function popuniRijec() {
   let rijecHTML = '';
@@ -104,11 +107,11 @@ function popuniRijec() {
 }
 
 
-
+//////////////////////////////////////////////
 // Prikaz poruka
 function prikaziPoruku(data) {
   if (data === 'poraz') {
-    porukeObavijesti.innerHTML = `<h2>Obješeni ste!</h2><p>Tražena rijeć= ${trazenaRijecOrg}</p>`;
+    porukeObavijesti.innerHTML = `<h2>Obješeni ste!</h2><p>Tražena riječ= ${trazenaRijecOrg}</p>`;
     // porukeObavijesti.append= '<p>Obješeni ste</p>'
   }
 
@@ -120,7 +123,7 @@ function prikaziPoruku(data) {
 }
 
 
-
+//////////////////////////////////////////////
 // pokretanje nove igre
 function novaIgra(rijec) {
   trazenaRijec = '';
@@ -173,9 +176,7 @@ function dohvatiRijeciText() {
 ////////////////////////////////////////////////
 // Unos slova u polju
 slovoInput.addEventListener('input', (e) => {
-  // console.log('e.target.value=', e.target.value);
-  // console.log('e.target.value=', e.target.value.charCodeAt(0));
-
+  // na unos svakog slova reagira program
   e = {
     keyCode: e.target.value.toUpperCase().charCodeAt(0),
     key: e.target.value.toUpperCase(),
@@ -188,14 +189,16 @@ slovoInput.addEventListener('input', (e) => {
   popuniRijec();
 });
 
-// // EVENT lisener na kejdown
-// window.addEventListener('keydown', (e) => {
-//   // obradujem uneseno slovo
-//   obradiUnos(e);
+///////////////////////////////////////////////////
+// EVENT lisener na tastaturu
+window.addEventListener('keydown', (e) => {
+  // obradujem uneseno slovo
+  obradiUnos(e);
 
-//   // popunjavam ekran
-//   popuniRijec();
-// });
+  // popunjavam ekran
+  popuniRijec();
+});
+
 
 // Event lisener za novu igru
 novaIgraBtn.addEventListener('click', dohvatiRijeciText);
