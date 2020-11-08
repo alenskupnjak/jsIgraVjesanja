@@ -12,7 +12,6 @@ const slovoInput = document.getElementById('slovoUnos');
 const pokazi = document.getElementById('pokazi');
 const upisano = document.getElementById('upisano');
 
-
 let slovo = '';
 let krivaSlova = [];
 let dobraSlova = [];
@@ -64,7 +63,10 @@ function obradiUnos(e) {
       } else {
         // Prikazujem dijelove tijela na bazi krivih slova
         krivaSlova.forEach((data, index) => {
-          tijelo[index].classList = 'tijelo prikazi';
+          console.log('cx');
+          
+          // tijelo[index].classList = 'tijelo prikazi';
+          tijelo[index].classList.add('prikazi');
         });
       }
     }
@@ -85,7 +87,7 @@ function popuniRijec() {
 
       // ako je rijec sa ekrana jednaka trazenoj rijeci prikazujemo pobjedu
       if (rijec === trazenaRijecOrg) {
-        prikaziPoruku('pobjeda');
+        prikaziPoruku('pobjeda',cry);
       }
     } else {
       rijecHTML = rijecHTML + `<span class="ne-pogodeno-slovo" >&nbsp</span>`;
@@ -106,7 +108,6 @@ function popuniRijec() {
   krivaSlovaTxt.innerHTML = rijecHTML;
 }
 
-
 //////////////////////////////////////////////
 // Prikaz poruka
 function prikaziPoruku(data) {
@@ -121,7 +122,6 @@ function prikaziPoruku(data) {
 
   poruke.style.display = 'block';
 }
-
 
 //////////////////////////////////////////////
 // pokretanje nove igre
@@ -145,7 +145,6 @@ function novaIgra(rijec) {
   });
 }
 
-
 //////////////////////////////////////////////
 // dohvati rijec iz API i pokreni novu igru
 function dohvatiRijeci() {
@@ -157,10 +156,11 @@ function dohvatiRijeci() {
     .catch((err) => console.log(err));
 }
 
-
 //////////////////////////////////////////////////
 // dohvati rijec iz TXT.datoteke i pokreni novu igru
 function dohvatiRijeciText() {
+  console.log(':imp:');
+   
   // Iz liste
   apiData.odaberiRijecIzDatoteke().then((data) => {
     // Zamjenjujem new line sa space da mogu
@@ -173,6 +173,7 @@ function dohvatiRijeciText() {
   });
 }
 
+// ':rage:'
 ////////////////////////////////////////////////
 // Unos slova u polju
 slovoInput.addEventListener('input', (e) => {
@@ -192,13 +193,12 @@ slovoInput.addEventListener('input', (e) => {
 ///////////////////////////////////////////////////
 // EVENT lisener na tastaturu
 window.addEventListener('keydown', (e) => {
-  // obradujem uneseno slovo
+  // obradujem uneseno slovo zbaog Č,Ž,Š...
   obradiUnos(e);
 
   // popunjavam ekran
   popuniRijec();
 });
-
 
 // Event lisener za novu igru
 novaIgraBtn.addEventListener('click', dohvatiRijeciText);
